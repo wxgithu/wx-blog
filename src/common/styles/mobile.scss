@@ -1,0 +1,59 @@
+.mobile-layout{
+    /* 下拉框的样式 */
+     .ivu-select .ivu-select-selection{
+        border-top:none;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: transparent;
+    }
+     .color-white .ivu-select-input{
+        color: #fff;
+    }
+    
+     .ivu-form-item-error .ivu-select.ivu-select-visible .ivu-select-selection,
+     .ivu-select:focus .ivu-select-selection{
+        box-shadow: none;
+    }
+    /* 输入框的样式 */
+     input.ivu-input{
+        border-top:none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+     input.ivu-input:focus{
+        box-shadow: none;
+    }
+     .ivu-form-item-error input.ivu-input{
+        border-top:none;
+        border-left: none;
+        border-right: none;
+    }
+     .ivu-form-item-error input.ivu-input:focus{
+        box-shadow: none;
+    }
+    /* 按钮的样式 */
+     .ivu-btn-primary {
+        background-color: #1ACFFF;
+        border-color: #1ACFFF;
+    }
+     .ivu-btn-primary.disabled,
+     .ivu-btn-primary.disabled.active,
+     .ivu-btn-primary.disabled:active,
+     .ivu-btn-primary.disabled:focus,
+    .ivu-btn-primary.disabled:hover,
+     .ivu-btn-primary[disabled],
+     .ivu-btn-primary[disabled].active,
+     .ivu-btn-primary[disabled]:active,
+     .ivu-btn-primary[disabled]:focus,
+     .ivu-btn-primary[disabled]:hover {
+        color: #bbbec4;
+        background-color: #f7f7f7;
+        border-color: #dddee1;
+    }
+     .ivu-radio-group-button .ivu-radio-wrapper-checked.ivu-radio-focus:after{
+        opacity: 0;
+    }
+}

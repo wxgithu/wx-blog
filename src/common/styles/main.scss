@@ -1,0 +1,114 @@
+html, body {
+  font-size: 14px;
+  background: #f5f7f9;
+  height: 100%;
+  min-width: 1260px;
+}
+body > div:first-child {
+  height: 100%;
+}
+/* 去掉ul默认样式 */
+ul, li{
+  list-style: none;
+}
+/* 行内水平居中 */
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+/* 垂直间距 */
+.gap-t-lg {
+  margin-top:30px;
+}
+.gap-t-md{
+  margin-top: 20px;
+}
+.gap-t-sm{
+  margin-top: 10px;
+}
+.gap-b-lg{
+  margin-bottom: 30px;
+}
+.gap-b-md{
+  margin-bottom: 20px;
+}
+.gap-b-sm{
+  margin-bottom: 10px;
+}
+/* 水平间距 */
+.gap-r-lg{
+  margin-right: 30px;
+}
+.gap-r-md{
+  margin-right: 20px;
+}
+.gap-r-sm{
+  margin-right: 10px;
+}
+.gap-l-lg{
+  margin-left: 30px;
+}
+.gap-l-md{
+  margin-left: 20px;
+}
+.gap-l-sm{
+  margin-left: 10px;
+}
+/* 设置弹框的样式是右侧弹出 */
+/* .ivu-modal-wrap-right{
+  top: 60px;
+} */
+.ivu-modal-wrap-right .ivu-modal{
+  height: 100%;
+  position: absolute;
+  right: 0;
+  margin: 0;
+  top: 0;
+}
+.ivu-modal-wrap-right .ivu-modal-content{
+  border-radius: 0;
+  height: 100%;
+}
+.ivu-modal-wrap-right .ivu-modal-header-inner{
+  text-align: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+.ivu-modal-wrap-right .ivu-modal-footer{
+  border-top: none;
+}
+/* 没有边框的列表 */
+.ivu-table-noborder{
+  border: none;
+}
+.ivu-table-noborder .ivu-table td,
+.ivu-table-noborder .ivu-table th{
+  border-bottom: none;
+}
+.ivu-table-noborder .ivu-table:after,
+.ivu-table-noborder .ivu-table:before{
+  background-color: transparent;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 400px #fff inset;
+}
+/* 左右浮动 */
+.lf {
+  float: left;
+}
+.rf {
+  float: right;
+}
+.clearfix {
+  overflow: hidden;
+  clear: both;
+}
+// 输入框的样式重置
+input, textarea,input:focus, textarea:focus{
+  outline: none !important;
+}

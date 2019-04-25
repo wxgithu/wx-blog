@@ -1,0 +1,52 @@
+/* 充值loyout的样式 */
+.ivu-layout {
+  height: 100%;
+}
+/* 重置默认按钮的样式 */
+.ivu-btn {
+    padding: 4px 20px;
+}
+/* 表格头部样式 */
+.ivu-table th{
+  background-color:#f1f1f1;
+}
+/* 表格文字居中显示 */
+td.ivu-table-column-left, th.ivu-table-column-left{
+  text-align: center;
+}
+
+/* 重置默认按钮的样式 
+.ivu-btn {
+    padding: 4px 20px;
+}
+*/
+/* 不可用按钮 
+.ivu-btn.disabled,
+.ivu-btn.disabled.active,
+.ivu-btn.disabled:active,
+.ivu-btn.disabled:focus,
+.ivu-btn.disabled:hover,
+.ivu-btn[disabled],
+.ivu-btn[disabled].active,
+.ivu-btn[disabled]:active,
+.ivu-btn[disabled]:focus,
+.ivu-btn[disabled]:hover,
+fieldset[disabled] .ivu-btn,
+fieldset[disabled] .ivu-btn.active,
+fieldset[disabled] .ivu-btn:active,
+fieldset[disabled] .ivu-btn:focus,
+fieldset[disabled] .ivu-btn:hover{
+  background: #2d8cf0;
+  border-color:#2d8cf0;
+  color:#fff;
+}
+*/
+/* 正常按钮 */
+.ivu-btn-primary {
+  // background: #4584F4;
+  // box-shadow: 0 4px 10px 0 rgba(102,140,230,0.35);
+  // border-radius: 2px;
+}
+.ivu-btn-text:focus{
+  // box-shadow: none;
+}
