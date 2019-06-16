@@ -1,0 +1,68 @@
+.personal {
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        .information {
+            .setting-verticle {
+                font-size: 15px;
+                color: #969696;
+            }
+        }
+        tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        td {
+            padding: 20px 0;
+        }
+    }
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    padding: 0 15px;
+    width: 170px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.sex,
+.birthday,
+.area,
+.intro {
+    margin-left: 20px;
+}
+
+.birthday,
+.area {
+    margin-top: 15px;
+}
+
+.area {
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.work {
+    width: 170px;
+    margin: -25px 0 0 48px;
+}
+
+.intro {
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.col2 {
+    margin-left: 60px;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Georgia, Times New Roman, Times, Songti SC, serif;
+}

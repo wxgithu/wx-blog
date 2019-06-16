@@ -15,7 +15,7 @@
             @change="change"
             @imgAdd="imgAdd"
         />
-        <i-spin v-if="inUpload" class="upload-spin" size="large" fix />
+        <Spin v-if="inUpload" class="upload-spin" size="large" fix />
     </div>
 </template>
 
@@ -104,7 +104,7 @@ export default class Markdown extends Vue {
 
     mounted() {
         this.imgInput = document.querySelector('.v-note-op .op-image input');
-        document.querySelector('.markdown .fa-mavon-align-left').setAttribute('title', '居左ctrl+shift+l');
+        // document.querySelector('.markdown .fa-mavon-align-left').setAttribute('title', '居左ctrl+shift+l');
     }
 
     get canEdit() {
@@ -141,9 +141,9 @@ export default class Markdown extends Vue {
         }
         formdata.append('upload', file);
         this.inUpload = true;
-        api.fileUpload(formdata).then((res) => {
+        this.axios.post('http://127.0.0.1:3000/images',formdata).then((res) => {
             this.inUpload = false;
-            const imgStr = `<img src="${res.data.url}" alt="${file.name}" width="${this.imageWidth}">`;
+            const imgStr = `<img src="${res.data.image_url}" alt="${file.name}" width="${this.imageWidth}">`;
             this.$nextTick(() => {
                 this.$emit('update:value', this.value.concat(imgStr));
             });

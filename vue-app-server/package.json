@@ -1,0 +1,24 @@
+{
+  "name": "blog-serve",
+  "version": "1.0.0",
+  "description": "a blog local serve",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "blog"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "wenxue",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mysql": "^2.17.1"
+  }
+}

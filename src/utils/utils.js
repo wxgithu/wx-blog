@@ -44,10 +44,10 @@ export default {
         }
         return realLength;
     },
-    // 截取8个字符
+    // 截取60个字符
     interceptStr(param) {
-        if (this.getLength(param) > 10) {
-            return param.slice(0, 8).concat('...');
+        if (this.getLength(param) > 75) {
+            return param.slice(0, 70).concat('...');
         }
         return param;
     },
@@ -74,7 +74,9 @@ export default {
                     break;
                 }
             }
-            Object.assign(target, { [key]: value.slice(0, index) });
+            Object.assign(target, {
+                [key]: value.slice(0, index)
+            });
         }, 0);
     },
     objToString(obj) {
@@ -96,5 +98,29 @@ export default {
         dayInterval = tenMin - (nowTimeStamp - pauseTime);
         return dayInterval;
     },
-};
+    /**
+     * 正则表达匹配数据中是否有表情文字，将表情文字转成图片
+     * @param data 需要匹配的数据
+     * @returns { data:匹配后的数据}
+     * @constructor
+     */
+    MatchEmotion(data) {
+        var EmotionList = ['眯眼', '微笑', '撇嘴', '色', '发呆', '流泪', '害羞', '闭嘴', '睡', '大哭', '尴尬', '发怒', '调皮', '呲牙', '惊讶',
+            '难过', '冷汗', '抓狂', '吐', '偷笑', '可爱', '白眼', '傲慢', '饥饿', '困', '惊恐', '流汗', '憨笑', '大兵', '奋斗',
+            '咒骂', '疑问', '嘘', '晕', '折磨', '衰', '敲打', '再见', '擦汗', '抠鼻', '糗大了', '坏笑', '左哼哼', '右哼哼', '哈欠',
+            '鄙视', '委屈', '快哭了', '阴险', '亲亲', '吓', '可怜', '拥抱', '月亮', '太阳', '炸弹', '骷髅', '菜刀', '猪头', '西瓜',
+            '咖啡', '饭', '爱心', '强', '弱', '握手', '胜利', '抱拳', '勾引', 'OK', 'NO', '玫瑰', '凋谢', '示爱', '爱情', '飞吻'
+        ];
 
+        //获取由所有双中括号的汉语组成的数组
+        var EmoticonChineseArray = data.match(/\[\[.*?\]\]/g); //如果匹配到返回数据，匹配不到返回null,如[ '[[微笑]]','[[撇嘴]]' ]。因为es6不支持断言，只能处理成这样
+        // 将数组中的各项，替换为<img src='1.gif'>
+        if (EmoticonChineseArray) {
+            EmoticonChineseArray.forEach(function(Item) {
+                Item = Item.replace(/\[|\]/g, ''); // 将字符串中的项如 '[[微笑]]'，替换为'微笑'
+                data = data.replace(/\[\[.*?\]\]/, '<img style="vertical-align:bottom" src="http://127.0.0.1:3000/images/emoji/' + EmotionList.indexOf(Item) + '.gif">'); //将'微笑'替换为<img src="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/0.gif">
+            });
+        }
+        return data;
+    },
+};

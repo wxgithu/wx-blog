@@ -12,7 +12,7 @@ body {
         position: relative;
         canvas {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: inline-block;
             vertical-align: baseline;
             position: absolute;
@@ -31,13 +31,13 @@ body {
             margin-left: -390px;
         }
         .nav {
-            width: 300px;
+            width: 440px;
             height: auto;
             position: absolute;
             z-index: 30;
             top: 420px;
             left: 50%;
-            margin-left: -150px;
+            margin-left: -220px;
         }
         a.gv {
             text-decoration: none;

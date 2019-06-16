@@ -1,7 +1,17 @@
 import comRegister from "./register.vue"
+import { validateName, validatePassword } from '@/utils/validate';
 export default {
     components: {
         comRegister,
+    },
+    created() {
+        var lett = this;
+        document.onkeydown = function(e) {
+            var key = window.event.keyCode;
+            if (key == 13) {
+                lett.handleSubmit('formInline');
+            }
+        }
     },
     mounted() {
         this.name = this.$route.params.name;
@@ -24,8 +34,8 @@ export default {
     data() {
         return {
             name: '',
+            uid: '',
             modalLoading: false,
-            submitDisabled: false,
             formInline: {
                 userName: '',
                 password: '',
@@ -33,53 +43,55 @@ export default {
             ruleInline: {
                 userName: [
                     { required: true, message: '请输入用户名', trigger: 'blur' },
-                    { validator: this.validateName, trigger: 'blur' },
+                    { validator: validateName, trigger: 'blur' },
                 ],
                 password: [
                     { required: true, message: '请输入密码', trigger: 'blur' },
-                    { validator: this.validatePassword, trigger: 'blur' },
+                    { validator: validatePassword, trigger: 'blur' },
                 ],
             },
         }
     },
     methods: {
-        //用户名:5-16位由字母、数字、_或汉字组成
-        validateName(rule, value, callback) {
-            if (value === '') {
-                callback();
-            } else {
-                const reg = new RegExp('^[A-Za-z0-9_\u4e00-\u9fa5]{5,16}$');
-                if (!reg.test(value)) {
-                    callback(new Error('请输入5-16位由字母、数字、_或汉字组成的用户名'));
-                } else {
-                    callback();
-                }
-            }
-        },
-        //密码:长度为8-15位包含数字、字母、特殊字符的密码
-        validatePassword(rule, value, callback) {
-            if (value === '') {
-                callback();
-            } else {
-                const reg = new RegExp('^(?=.*[0-9])(?=.*[!@#$%^&*])[0-9a-zA-Z!@#$%^&*0-9]{8,15}$');
-                if (!reg.test(value)) {
-                    callback(new Error('请输入8-15位包含数字、字母、特殊字符的密码'));
-                } else {
-                    callback();
-                }
+        onTabChanged(name) {
+            if (name === "name1") {
+                const state = "http://localhost:8080/login/name2";
+                const url = "http://localhost:8080/login/name1";
+                history.pushState(state, null, url)
+            } else if (name === "name2") {
+                const state = "http://localhost:8080/login/name1";
+                const url = "http://localhost:8080/login/name2";
+                history.pushState(state, null, url)
             }
         },
         handleSubmit(name) {
             this.modalLoading = true;
             const params = {
-                userName: this.formInline.userName,
+                name: this.formInline.userName,
                 password: this.formInline.password,
             };
-            console.log(params);
             this.$refs[name].validate((valid) => {
                 if (valid) {
                     this.modalLoading = false;
-                    this.$Message.success('登录成功');
+                    this.axios.post("http://127.0.0.1:3000/users/signin", params).then((res) => {
+                        this.uid = res.data.uid;
+                        if (res.data.ok == 0) {
+                            this.$Message.error('用户名或密码不正确');
+                        } else if (res.data.ok == 1) {
+                            const loginName = JSON.parse(localStorage.getItem("islogin"));
+                            if (loginName == null) {
+                                this.$Message.success('登录成功');
+                                //登录成功跳转到首页
+                                this.$router.push({
+                                    path: "/home",
+                                })
+                                localStorage.setItem("islogin", JSON.stringify(this.formInline));
+                                localStorage.setItem("uid", this.uid);
+                            } else if (loginName.userName == this.formInline.userName) {
+                                this.$Message.warning("该用户已登录");
+                            }
+                        }
+                    })
                 } else {
                     this.modalLoading = false;
                 }

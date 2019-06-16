@@ -1,0 +1,123 @@
+.head {
+    .nav-menu {
+        display: flex;
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            color: #2d8cf0;
+            font-size: 40px;
+            width: 100px;
+        }
+        .nav-head {
+            margin-left: 80px;
+            li {
+                display: inline;
+                float: left;
+                width: 100px;
+                height: 30px;
+                a {
+                    font-size: 20px;
+                }
+            }
+        }
+        .nav-right {
+            float: right;
+            margin-left: 50px;
+            .not-login,
+            .is-login {
+                float: left;
+            }
+            .is-login {
+                .avatar {
+                    display: block;
+                    height: 64px;
+                    width: 100px;
+                    img {
+                        width: 40px;
+                        border-radius: 50% 50%;
+                        margin-top: 13px;
+                    }
+                    &:after {
+                        content: "";
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                        border-top: 6px solid #999;
+                        margin-left: 5px;
+                    }
+                    &:hover {
+                        background: #F2F2F2;
+                    }
+                }
+                .dropdown-menu {
+                    width: 130px;
+                    height: 245px;
+                    background: #fff;
+                    position: absolute;
+                    z-index: 100;
+                    top: 65px;
+                    right: 379px;
+                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+                    li {
+                        width: 130px;
+                        text-align: left;
+                        display: block;
+                        height: 30px;
+                        line-height: 30px;
+                        margin: 5px 0;
+                        a {
+                            display: block;
+                            padding: 4px 0;
+                            &:hover {
+                                background: #F2F2F2;
+                            }
+                            .ivu-icon {
+                                margin-bottom: 3px;
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+                    span {
+                        color: #000;
+                        font-family: 'Courier New', Courier, monospace;
+                    }
+                }
+            }
+        }
+        .not-login {
+            margin-left: 90px;
+        }
+        li {
+            display: inline;
+            float: left;
+            width: 100px;
+            height: 30px;
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+    .search {
+        margin-left: 60px;
+        width: 200px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 30px;
+        background: #eee;
+        margin-top: 15px;
+        input {
+            background: #eee;
+            border-radius: 30px;
+            height: 35px;
+            border: none;
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+.ivu-icon-ios-log-in,
+.ivu-icon-ios-log-out,
+.ivu-icon-ios-create-outline {
+    margin-bottom: 7px;
+}

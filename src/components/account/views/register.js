@@ -1,8 +1,13 @@
+import { validateNum, validateName, validatePassword } from '@/utils/validate';
 export default {
+    inject: ["reload"],
     data() {
         return {
             modalLoading: false,
-            submitDisabled: false,
+            disabled: true,
+            code: '',
+            vertifyCode: "",
+            register: false,
             formInline: {
                 userName: '',
                 password: '',
@@ -11,70 +16,74 @@ export default {
             ruleInline: {
                 userName: [
                     { required: true, message: '请输入昵称', trigger: 'blur' },
-                    { validator: this.validateName, trigger: 'blur' },
+                    { validator: validateName, trigger: 'blur' },
                 ],
                 phoneNum: [
                     { required: true, message: '请输入手机号', trigger: 'blur' },
-                    { validator: this.validateNum, trigger: 'blur' },
+                    { validator: validateNum, trigger: 'blur' },
                 ],
                 password: [
                     { required: true, message: '请输入密码', trigger: 'blur' },
-                    { validator: this.validatePassword, trigger: 'blur' },
+                    { validator: validatePassword, trigger: 'blur' },
                 ],
             },
         }
     },
+    watch: {
+        '$route' (to, from) {
+            if (to.name == 'login') {
+                this.$router.push({
+                    name: 'login',
+                    params: { id: name1 }
+                })
+            }
+        }
+    },
     methods: {
-        //用户名:5-16位由字母、数字、_或汉字组成
-        validateName(rule, value, callback) {
-            if (value === '') {
-                callback();
-            } else {
-                const reg = new RegExp('^[A-Za-z0-9_\u4e00-\u9fa5]{5,16}$');
-                if (!reg.test(value)) {
-                    callback(new Error('请输入5-16位由字母、数字、_或汉字组成的用户名'));
-                } else {
-                    callback();
-                }
-            }
+
+        //短信验证码
+        getCode() {
+            this.axios.get("http://127.0.0.1:3000/users/code", { params: { phone: this.formInline.phoneNum, } }).then((res) => {
+                this.vertifyCode = res.data;
+                // console.log(this.vertifyCode);
+            }).catch(function(err) {
+                console.log(err);
+            })
         },
-        validateNum(rule, value, callback) {
-            if (value === '') {
-                callback();
-            } else {
-                const reg = new RegExp('^[1]{1}[0-9]{10}$');
-                if (!reg.test(value)) {
-                    callback(new Error('请输入正确格式的手机号码'));
-                } else {
-                    callback();
-                }
-            }
-        },
-        //密码:长度为8-15位包含数字、字母、特殊字符的密码
-        validatePassword(rule, value, callback) {
-            if (value === '') {
-                callback();
-            } else {
-                const reg = new RegExp('^(?=.*[0-9])(?=.*[!@#$%^&*])[0-9a-zA-Z!@#$%^&*0-9]{8,15}$');
-                if (!reg.test(value)) {
-                    callback(new Error('请输入8-15位包含数字、字母、特殊字符的密码'));
-                } else {
-                    callback();
-                }
-            }
-        },
+
         handleSubmit(name) {
             this.modalLoading = true;
             const params = {
-                userName: this.formInline.userName,
-                phoneNum: this.formInline.phoneNum,
+                name: this.formInline.userName,
+                phone: this.formInline.phoneNum,
                 password: this.formInline.password,
+                code: this.code,
+                vertifyCode: this.vertifyCode,
             };
-            console.log(params);
+            // console.log(params.vertifyCode);
             this.$refs[name].validate((valid) => {
                 if (valid) {
                     this.modalLoading = false;
-                    this.$Message.success('登录成功');
+                    this.axios.post("http://127.0.0.1:3000/users/register", params).then((res) => {
+                        // console.log(res);
+                        if (res.data == "please input code") {
+                            this.$Message.error('请输入验证码');
+                        }
+                        if (res.data == "nickname occupied") {
+                            this.$Message.warning('昵称已被占用');
+                        }
+                        if (res.data == "code error") {
+                            this.$Message.error('验证码不正确');
+                        }
+                        if (res.data == "ok") {
+                            this.$Message.success('注册成功,请登录!');
+                            //注册成功跳转到登陆页
+                            this.$router.push({
+                                path: "/login/name1",
+                            });
+                            this.reload();
+                        }
+                    })
                 } else {
                     this.modalLoading = false;
                 }

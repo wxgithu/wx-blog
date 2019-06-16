@@ -1,0 +1,184 @@
+.article-detail {
+    .content {
+        width: 660px;
+        margin: 0 auto;
+        margin-top: 120px;
+    }
+    .title {
+        font-family: Kai, Kaiti SC, KaiTi, BiauKai, \\6977\4F53, \\6977\4F53_GB2312, Songti SC, serif;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 35px 0 0;
+        white-space: normal;
+        word-wrap: break-word !important;
+        text-align: left;
+    }
+    .author {
+        margin: 35px 0 30px -25px;
+        width: 400px;
+        .avatar {
+            width: 48px;
+            height: 48px;
+            vertical-align: middle;
+            display: inline-block;
+            img {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+        }
+        .info {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 8px;
+            .name {
+                margin-right: 3px;
+                font-size: 16px;
+                vertical-align: middle;
+                margin-left: -155px;
+                a {
+                    color: #333;
+                }
+            }
+            .follow {
+                padding: 0 7px 0 5px;
+                font-size: 12px;
+                border-color: #42c02e;
+                font-weight: 400;
+                height: 20px;
+                line-height: 20px;
+            }
+            .btn {
+                display: inline-block;
+                margin-bottom: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .btn-success {
+                border-radius: 40px;
+                color: #fff;
+                background-color: #42c02e;
+            }
+        }
+        .meta {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #969696;
+            span {
+                padding-right: 5px;
+                font-family: Georgia, Times New Roman, Times, Songti SC, serif;
+            }
+        }
+    }
+    .article-content {
+        color: #2f2f2f;
+        word-break: break-word!important;
+        word-break: break-all;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+    .header {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+    }
+    .emoji {
+        width: 500px;
+        margin: 30px auto;
+        overflow: hidden;
+        span {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    .like {
+        margin: 30px auto;
+        border: 1px solid #EA6F5A;
+        border-radius: 40px;
+        width: 215px;
+        font-size: 19px;
+        height: 60px;
+        line-height: 60px;
+        a {
+            color: #EA6F5A;
+            padding-right: 10px;
+        }
+        .btn-like {
+            .line {
+                border-right: 1px solid #EA6F5A;
+            }
+        }
+    }
+    .new-comment {
+        position: relative;
+        margin-top: 0;
+        .avatar {
+            margin-right: 5px;
+            width: 38px;
+            height: 38px;
+            vertical-align: middle;
+            display: inline-block;
+            float: left;
+            img {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+        }
+        // textarea {
+        //     padding: 10px 15px;
+        //     width: 40%;
+        //     height: 80px;
+        //     font-size: 13px;
+        //     border: 1px solid #dcdcdc;
+        //     border-radius: 4px;
+        //     background-color: hsla(0, 0%, 71%, .1);
+        //     resize: none;
+        //     display: inline-block;
+        //     vertical-align: top;
+        //     outline-style: none;
+        // }
+        // .write-function-block {
+        //     height: 50px;
+        //     width: 800px;
+        //     margin-left: 170px;
+        //     margin-top: 10px;
+        //     .emoji-modal-wrap {
+        //         .emoji {
+        //             float: left;
+        //             margin-top: 14px;
+        //         }
+        //     }
+        //     .hint {
+        //         float: left;
+        //         margin: 20px 0 0 -200px;
+        //         font-size: 13px;
+        //         color: #969696;
+        //     }
+        //     .btn-send {
+        //         float: right;
+        //         width: 78px;
+        //         margin: 10px 30px;
+        //         padding: 8px 16px;
+        //         font-size: 16px;
+        //         border: none;
+        //         border-radius: 20px;
+        //         color: #fff!important;
+        //         background-color: #2d8cf0;
+        //         cursor: pointer;
+        //         outline: none;
+        //         display: block;
+        //     }
+        //     .cancel {
+        //         float: right;
+        //         margin: 18px 35px 0 0;
+        //         font-size: 16px;
+        //         color: #969696;
+        //     }
+        // }
+    }
+}

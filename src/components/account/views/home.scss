@@ -1,0 +1,131 @@
+                .home {
+                    .bg {
+                        background: #f5f7f9;
+                    }
+                    .loading {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 80px;
+                        background-color: white;
+                    }
+                    .no-more-data {
+                        position: absolute;
+                        bottom: 0;
+                        width: 698px;
+                        margin-left: 135px;
+                    }
+                    .no-data {
+                        background-color: white;
+                        height: 80px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .header {
+                        position: fixed;
+                        z-index: 100;
+                        width: 100%;
+                    }
+                    .carousel {
+                        margin-top: 100px;
+                        .title {
+                            width: 450px;
+                            height: 230px;
+                            position: absolute;
+                            top: 20%;
+                            background-color: rgba(0, 0, 0, .5);
+                            margin-left: 300px;
+                            p {
+                                margin-top: 15px;
+                                font-size: 15px;
+                                color: white;
+                                letter-spacing: 1px;
+                                text-indent: 2em;
+                            }
+                            h2 {
+                                color: white;
+                                margin-top: 15px;
+                                font-size: 30px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .main {
+                        // display: flex;
+                        overflow: hidden;
+                        position: relative;
+                        height: auto;
+                        .article {
+                            margin-left: 135px;
+                            float: left;
+                            margin-top: 20px;
+                            .time {
+                                margin-left: 25px;
+                            }
+                            .article-title {
+                                color: #000;
+                                font-size: 20px;
+                                font-weight: 600;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .introduction {
+                                color: #999;
+                                margin-top: 10px;
+                            }
+                            .operate {
+                                margin-top: 15px;
+                                .name {
+                                    color: #b4b4b4;
+                                }
+                                img {
+                                    margin-left: 15px;
+                                }
+                            }
+                        }
+                        .author {
+                            width: 374px;
+                            right: 125px;
+                            position: absolute;
+                            .author-head {
+                                display: flex;
+                                justify-content: space-between;
+                                color: #969696;
+                                font-size: 14px;
+                            }
+                            .author-name {
+                                display: flex;
+                                margin-top: 30px;
+                                justify-content: space-between;
+                                img {
+                                    border-radius: 50% 50%;
+                                    width: 48px;
+                                    height: 48px;
+                                }
+                                .name-show {
+                                    display: flex;
+                                    .text {
+                                        a {
+                                            color: #333;
+                                            font-size: 13px;
+                                        }
+                                        .like {
+                                            color: #969696;
+                                            padding-left: 28px;
+                                            margin-top: 8px;
+                                        }
+                                    }
+                                }
+                                .focus {
+                                    font-size: 15px;
+                                    color: #42c02e;
+                                    font-weight: 600;
+                                    margin-top: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
