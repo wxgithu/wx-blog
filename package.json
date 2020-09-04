@@ -18,7 +18,7 @@
     "jquery": "^3.3.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "showdown": "^1.9.0",
+    "showdown": "^1.9.1",
     "vue": "^2.5.2",
     "vue-class-component": "^7.0.2",
     "vue-router": "^3.0.1",
